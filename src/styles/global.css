@@ -1,0 +1,11 @@
+h1 {
+  font-family: var(--font-headline);
+}
+
+a {
+  font-family: var(--font-body);
+}
+
+p {
+  font-family: var(--font-label);
+}
