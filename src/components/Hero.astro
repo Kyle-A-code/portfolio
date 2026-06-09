@@ -1,0 +1,116 @@
+---
+import EmailIcon from "../assets/email.svg";
+import FileIcon from "../assets/file.svg";
+import GitHubIcon from "../assets/github.svg";
+import LinkedInIcon from "../assets/linkedin.svg";
+---
+
+<div class="hero-content glass-panel">
+  <span class="label-caps job-badge">Senior Fullstack Engineer</span>
+  <h1 class="font-display-lg">Kyle Annett</h1>
+  <p class="font-headline-sm hero-description">
+    Building resilient digital ecosystems where technical precision meets
+    organic architectural growth.
+  </p>
+  <div class="hero-links">
+    <a
+      href="https://github.com/Kyle-A-code"
+      rel="noopener noreferrer"
+      target="_blank"
+      title="GitHub"
+      aria-label="GitHub"
+    >
+      <GitHubIcon class="icon" aria-hidden="true" focusable="false" />
+    </a>
+    <a
+      href="https://www.linkedin.com/in/kyleannett/"
+      rel="noopener noreferrer"
+      target="_blank"
+      title="LinkedIn"
+      aria-label="LinkedIn"
+    >
+      <LinkedInIcon class="icon" aria-hidden="true" focusable="false" />
+    </a>
+    <a
+      href="/kyle-annett-resume.pdf"
+      rel="noopener noreferrer"
+      target="_blank"
+      title="Resume"
+      aria-label="Resume"
+    >
+      <FileIcon class="icon" aria-hidden="true" focusable="false" />
+    </a>
+    <a
+      href="mailto:kyle.j.annett@gmail.com"
+      rel="noopener noreferrer"
+      target="_blank"
+      title="Email"
+      aria-label="Email"
+    >
+      <EmailIcon class="icon" aria-hidden="true" focusable="false" />
+    </a>
+  </div>
+</div>
+
+<style>
+  .hero-content {
+    width: fit-content;
+    max-width: 80vw;
+    text-align: center;
+    border-radius: var(--border-radius-xl);
+    padding: var(--spacing-3);
+    z-index: var(--z-90);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .job-badge {
+    color: var(--secondary);
+    background-color: color-mix(in srgb, var(--secondary) 10%, transparent);
+    border-radius: var(--border-radius-full);
+    padding: var(--spacing-1) var(--spacing-2);
+    display: inline-block;
+  }
+
+  .hero-description {
+    color: var(--on-surface-variant);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--spacing-3);
+  }
+
+  .hero-links {
+    display: flex;
+    justify-content: center;
+    gap: var(--spacing-2);
+
+    & > a {
+      display: inline-flex;
+      padding: var(--spacing-2);
+      color: var(--primary-fixed);
+
+      &:hover {
+        color: var(--secondary);
+
+        & > .icon {
+          transform: translateY(-0.25rem);
+        }
+      }
+
+      &:focus-visible {
+        outline: var(--focus-outline);
+        outline-offset: var(--focus-outline-offset);
+      }
+    }
+  }
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+    display: block;
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+</style>

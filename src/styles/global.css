@@ -92,12 +92,26 @@
   --focus-outline: 2px solid var(--primary-fixed);
   --focus-outline-offset: 2px;
 
-  --header-z-index: 100;
+  --z-0: 0;
+  --z-10: 10;
+  --z-20: 20;
+  --z-30: 30;
+  --z-40: 40;
+  --z-50: 50;
+  --z-60: 60;
+  --z-70: 70;
+  --z-80: 80;
+  --z-90: 90;
+  --z-100: 100;
+  --z-max: 9999;
 
   --layout-max-width: 75rem;
   --breakpoint-md: 48rem;
 
   --header-height: 4rem;
+  --parallax-height: 100dvh;
+
+  --parallax-multiplier: 500px;
 }
 
 body {
@@ -105,7 +119,7 @@ body {
   color: var(--on-background);
 }
 
-.display-lg {
+.font-display-lg {
   font-family: var(--font-headline);
   font-size: var(--font-size-4xl);
   font-weight: var(--font-weight-bold);
@@ -118,28 +132,35 @@ body {
   }
 }
 
-.headline-md {
+.font-headline-md {
   font-family: var(--font-headline);
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
   line-height: var(--line-height-normal);
 }
 
-.body-lg {
+.font-headline-sm {
+  font-family: var(--font-headline);
+  font-size: var(--font-size-md);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.font-body-lg {
   font-family: var(--font-body);
   font-size: var(--font-size-lg);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-loose);
 }
 
-.body-md {
+.font-body-md {
   font-family: var(--font-body);
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-loose);
 }
 
-.code-sm {
+.font-code-sm {
   font-family: var(--font-label);
   font-size: var(--font-size-sm);
   font-weight: var(--font-weight-regular);
@@ -155,7 +176,7 @@ body {
   text-transform: uppercase;
 }
 
-.link-md {
+.link-primary {
   color: var(--on-surface-variant);
   text-decoration: none;
   transition: color 0.3s ease;
@@ -190,4 +211,12 @@ body {
     outline: var(--focus-outline);
     outline-offset: var(--focus-outline-offset);
   }
+}
+
+.glass-panel {
+  background-color: var(--glass-background);
+  border: var(--glass-border);
+  box-shadow: var(--shadow-sm);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }

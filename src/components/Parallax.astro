@@ -1,0 +1,113 @@
+---
+import LayerMountain1 from "../assets/1.png";
+import LayerMountain2 from "../assets/2.png";
+import LayerMountain3 from "../assets/3.png";
+import LayerMountain4 from "../assets/4.png";
+import LayerTree1 from "../assets/5.png";
+import LayerTree2 from "../assets/6.png";
+import LayerGround1 from "../assets/7.png";
+import LayerGround2 from "../assets/8.png";
+---
+
+<div class="parallax-container" id="hero">
+  <div id="layer-base" class="parallax-layer"></div>
+  <img src={LayerMountain1.src} id="layer-mountain-1" class="parallax-layer" alt="" />
+  <img src={LayerMountain2.src} id="layer-mountain-2" class="parallax-layer" alt="" />
+  <img src={LayerMountain3.src} id="layer-mountain-3" class="parallax-layer" alt="" />
+  <img src={LayerMountain4.src} id="layer-mountain-4" class="parallax-layer" alt="" />
+  <img src={LayerTree1.src} id="layer-tree-1" class="parallax-layer" alt="" />
+  <img src={LayerTree2.src} id="layer-tree-2" class="parallax-layer" alt="" />
+  <img src={LayerGround1.src} id="layer-ground-1" class="parallax-layer" alt="" />
+  <img src={LayerGround2.src} id="layer-ground-2" class="parallax-layer" alt="" />
+  <slot />
+</div>
+
+<style>
+  .parallax-container {
+    height: 100dvh;
+    display: grid;
+    grid-template-areas: "stack";
+    overflow: clip;
+    z-index: var(--z-0);
+
+    & > .parallax-layer {
+      align-self: end;
+      justify-self: stretch;
+      grid-area: stack;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      animation: parallax linear;
+      animation-timeline: scroll(root block);
+      animation-range: 0 100dvh;
+    }
+
+    #layer-base {
+      will-change: transform;
+      height: 100%;
+      background: linear-gradient(
+        352deg,
+        var(--background) 0%,
+        var(--secondary) 100%
+      );
+    }
+
+    #layer-mountain-1 {
+      --parallax-speed: 0.12;
+      z-index: 1;
+    }
+
+    #layer-mountain-2 {
+      --parallax-speed: 0.2;
+      z-index: 2;
+    }
+
+    #layer-mountain-3 {
+      --parallax-speed: 0.31;
+      z-index: 3;
+    }
+
+    #layer-mountain-4 {
+      --parallax-speed: 0.45;
+      z-index: 4;
+    }
+
+    #layer-tree-1 {
+      --parallax-speed: 0.56;
+      z-index: 5;
+    }
+
+    #layer-tree-2 {
+      --parallax-speed: 0.74;
+      z-index: 6;
+    }
+
+    #layer-ground-1 {
+      --parallax-speed: 0.96;
+      z-index: 7;
+    }
+
+    #layer-ground-2 {
+      z-index: 8;
+      /* todo: blend with background */
+    }
+  }
+
+  @keyframes parallax {
+    to {
+      transform: translate3d(
+        0,
+        calc(var(--parallax-speed) * var(--parallax-multiplier)),
+        0
+      );
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .parallax-container > .parallax-layer {
+      animation: none;
+      transform: none;
+    }
+  }
+</style>

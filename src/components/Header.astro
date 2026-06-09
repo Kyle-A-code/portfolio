@@ -1,0 +1,55 @@
+<header>
+  <nav class="header-nav glass-panel">
+    <div class="nav-container">
+      <div class="font-headline-md">KyleAnnett.DEV</div>
+      <div class="header-links font-body-md">
+        <a class="link-primary" href="#about">About</a>
+        <a class="link-primary" href="#projects">Artifacts</a>
+        <a class="link-primary" href="#experience">Experience</a>
+      </div>
+      <a
+        class="label-caps primary-button header-cta"
+        href="mailto:kyle.j.annett@gmail.com"
+      >
+        Get in touch!
+      </a>
+    </div>
+  </nav>
+</header>
+
+<style>
+  .header-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--header-height);
+    align-content: center;
+    z-index: var(--z-100);
+    color: var(--on-surface);
+  }
+
+  .nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--layout-max-width);
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: var(--spacing-1) var(--spacing-3);
+  }
+
+  .header-links {
+    display: none;
+
+    @media (min-width: 48rem) {
+      display: flex;
+      gap: var(--spacing-2);
+    }
+  }
+
+  .header-cta {
+    text-decoration: none;
+  }
+</style>

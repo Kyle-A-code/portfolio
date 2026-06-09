@@ -1,7 +1,7 @@
 ---
 import { Font } from "astro:assets";
 import "../styles/global.css";
-import Header from "../components/header/Header.astro";
+import Header from "../components/Header.astro";
 ---
 
 <!doctype html>
@@ -15,9 +15,10 @@ import Header from "../components/header/Header.astro";
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>Astro Basics</title>
+    <title>KyleAnnett.DEV</title>
   </head>
   <body>
+    <a class="skip-link" href="#main-content">Skip to main content</a>
     <Header />
     <slot />
   </body>
@@ -29,5 +30,24 @@ import Header from "../components/header/Header.astro";
     margin: 0;
     width: 100%;
     height: 100%;
+  }
+
+  .skip-link {
+    position: fixed;
+    left: -9999px;
+    top: 0;
+    z-index: var(--z-max);
+    padding: var(--spacing-1) var(--spacing-2);
+    border-radius: var(--border-radius-default);
+    background-color: var(--surface-container-high);
+    color: var(--on-surface);
+    text-decoration: none;
+  }
+
+  .skip-link:focus-visible {
+    left: var(--spacing-2);
+    top: calc(var(--spacing-2) + var(--header-height));
+    outline: var(--focus-outline);
+    outline-offset: var(--focus-outline-offset);
   }
 </style>
