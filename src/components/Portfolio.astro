@@ -1,0 +1,156 @@
+---
+import { getCollection } from "astro:content";
+import ExternalIcon from "../assets/external.svg";
+
+const projects = (await getCollection("projects"))
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((project) => project.data);
+---
+
+<div class="portfolio-list">
+  {
+    projects.map((project) => (
+      <a
+        href={project.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label={`View ${project.title} (opens in new tab)`}
+        class="portfolio-card-link"
+      >
+        <article class="glass-panel portfolio-card">
+          <div class="project-header">
+            <h3 class="font-headline-md">{project.title}</h3>
+            <ExternalIcon
+              class="link-icon"
+              aria-hidden="true"
+              focusable="false"
+            />
+          </div>
+
+          <div class="portfolio-info">
+            <div class="info-item">
+              <span class="label-caps info-label">Summary</span>
+              <p class="font-body-md info-value">{project.summary}</p>
+            </div>
+
+            <div class="info-item">
+              <span class="label-caps info-label">Goal / Approach</span>
+              <p class="font-body-md info-value">{project.goal}</p>
+            </div>
+
+            <div class="info-item">
+              <span class="label-caps info-label">Technologies</span>
+              <div class="portfolio-tags">
+                {project.technologies.map((tech) => (
+                  <span class="tag">{tech}</span>
+                ))}
+              </div>
+            </div>
+          </div>
+        </article>
+      </a>
+    ))
+  }
+</div>
+
+<style>
+  .portfolio-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+    width: 100%;
+  }
+
+  .portfolio-card-link {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    border-radius: var(--border-radius-lg);
+
+    &:focus-visible {
+      outline: var(--focus-outline);
+      outline-offset: var(--focus-outline-offset);
+    }
+
+    &:is(:hover, :focus-visible) {
+      .portfolio-card {
+        transform: translateY(-2px);
+        box-shadow: var(--shadow-primary-hover);
+      }
+
+      .project-header {
+        h3 {
+          color: var(--primary);
+        }
+      }
+
+      .link-icon {
+        color: var(--secondary);
+        transform: translateY(-0.125rem);
+      }
+    }
+  }
+
+  .portfolio-card {
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-3);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-2);
+    transition:
+      transform 0.2s ease,
+      box-shadow 0.2s ease;
+  }
+
+  .project-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-2);
+
+    h3 {
+      margin: 0;
+      transition: color 0.2s ease;
+    }
+  }
+
+  .link-icon {
+    width: 1.25rem;
+    height: 1.25rem;
+    color: var(--primary);
+    flex-shrink: 0;
+    transition:
+      color 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .portfolio-info {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+  }
+
+  .info-item {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-1);
+  }
+
+  .info-label {
+    color: var(--secondary);
+    font-size: var(--font-size-xs);
+  }
+
+  .info-value {
+    color: var(--on-surface-variant);
+    margin: 0;
+    max-width: 52rem;
+  }
+
+  .portfolio-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-1);
+  }
+</style>

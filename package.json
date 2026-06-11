@@ -9,10 +9,15 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "check": "astro check",
+    "astro": "astro",
+    "format": "prettier --write \"**/*.{astro,js,ts,json,md}\""
   },
   "dependencies": {
-    "astro": "^6.4.3"
+    "@astrojs/check": "^0.9.9",
+    "astro": "^6.4.3",
+    "sharp": "^0.34.5",
+    "typescript": "^6.0.3"
   },
   "devDependencies": {
     "prettier": "3.8.3",

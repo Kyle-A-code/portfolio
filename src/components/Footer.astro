@@ -1,0 +1,71 @@
+<footer>
+  <div class="footer-container">
+    <p class="font-headline-sm footer-text">KyleAnnett.DEV</p>
+    <div class="footer-links font-body-md">
+      <a
+        href="https://github.com/Kyle-A-code"
+        rel="noopener noreferrer"
+        target="_blank"
+        aria-label="GitHub (opens in new tab)"
+        class="link-primary"
+      >
+        GitHub
+      </a>
+      <a
+        href="https://www.linkedin.com/in/kyleannett/"
+        rel="noopener noreferrer"
+        target="_blank"
+        aria-label="LinkedIn (opens in new tab)"
+        class="link-primary"
+      >
+        LinkedIn
+      </a>
+      <a
+        href="/kyle-annett-resume.pdf"
+        rel="noopener noreferrer"
+        target="_blank"
+        aria-label="Resume (opens in new tab)"
+        class="link-primary"
+      >
+        Resume
+      </a>
+      <a
+        href="mailto:kyle.j.annett@gmail.com"
+        rel="noopener noreferrer"
+        class="link-primary"
+      >
+        Contact
+      </a>
+    </div>
+  </div>
+</footer>
+
+<style>
+  footer {
+    height: var(--footer-height);
+    background-color: var(--surface-container-lowest);
+    display: flex;
+    align-content: center;
+  }
+
+  .footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: var(--layout-max-width);
+    width: 100%;
+    box-sizing: border-box;
+    margin: 0 auto;
+    padding: var(--spacing-1) var(--spacing-3);
+  }
+
+  .footer-text {
+    color: var(--secondary);
+    font-size: var(--font-size-lg);
+  }
+
+  .footer-links {
+    display: flex;
+    gap: var(--spacing-2);
+  }
+</style>

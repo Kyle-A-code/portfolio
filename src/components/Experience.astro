@@ -1,0 +1,91 @@
+---
+import { getCollection } from "astro:content";
+
+const experienceItems = (await getCollection("experience"))
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((item) => item.data);
+---
+
+<div class="experience-list">
+  {
+    experienceItems.map((item, index) => (
+      <article class="experience-item">
+        <div class="experience-rail" aria-hidden="true">
+          <span
+            class:list={["experience-dot", { "is-current": item.isCurrent }]}
+          />
+          {index < experienceItems.length - 1 && (
+            <span class="experience-line" />
+          )}
+        </div>
+        <div class="experience-content">
+          <span class="label-caps experience-period">{item.period}</span>
+          <h3 class="font-headline-md">{item.role}</h3>
+          <p class="font-headline-sm">{item.company}</p>
+          <p class="font-body-md experience-summary">{item.summary}</p>
+        </div>
+      </article>
+    ))
+  }
+</div>
+
+<style>
+  .experience-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-3);
+  }
+
+  .experience-item {
+    display: flex;
+    gap: var(--spacing-3);
+  }
+
+  .experience-rail {
+    display: none;
+
+    @media (min-width: 48rem) {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 1rem;
+      flex-shrink: 0;
+    }
+  }
+
+  .experience-dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: var(--border-radius-full);
+    background-color: color-mix(in srgb, var(--primary) 40%, transparent);
+
+    &.is-current {
+      background-color: var(--secondary);
+    }
+  }
+
+  .experience-line {
+    width: 0.125rem;
+    flex: 1;
+    margin-top: var(--spacing-1);
+    background-color: color-mix(
+      in srgb,
+      var(--outline-variant) 30%,
+      transparent
+    );
+  }
+
+  .experience-content {
+    padding-bottom: var(--spacing-3);
+  }
+
+  .experience-period,
+  .experience-summary {
+    color: var(--on-surface-variant);
+  }
+
+  h3 {
+    margin: var(--spacing-1) 0;
+    color: var(--primary);
+  }
+</style>

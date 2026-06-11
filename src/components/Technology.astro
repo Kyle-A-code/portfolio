@@ -1,0 +1,88 @@
+---
+import { getCollection } from "astro:content";
+import CloudIcon from "../assets/cloud.svg";
+import CodeIcon from "../assets/code.svg";
+import CubesIcon from "../assets/cubes.svg";
+import GearsIcon from "../assets/gears.svg";
+
+const iconComponents = {
+  cloud: CloudIcon,
+  code: CodeIcon,
+  cubes: CubesIcon,
+  gears: GearsIcon,
+};
+const technologies = (await getCollection("technologies"))
+  .sort((a, b) => a.data.order - b.data.order)
+  .map((technology) => {
+    return {
+      ...technology.data,
+      icon: iconComponents[technology.data.icon],
+    };
+  });
+---
+
+<div class="technology-list">
+  {
+    technologies.map((technology) => (
+      <div class="glass-panel technology-card">
+        <div class="technology-card-header">
+          <technology.icon
+            class="technology-icon"
+            aria-hidden="true"
+            focusable="false"
+          />
+          <h3 class="font-headline-md">{technology.title}</h3>
+        </div>
+        <div class="technology-card-items">
+          {technology.items.map((item) => (
+            <span class="tag">{item}</span>
+          ))}
+        </div>
+      </div>
+    ))
+  }
+</div>
+
+<style>
+  .technology-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    gap: var(--spacing-3);
+  }
+
+  .technology-card {
+    width: 100%;
+    border-radius: var(--border-radius-lg);
+    padding: var(--spacing-3);
+
+    @media (min-width: 48rem) {
+      width: 15rem;
+    }
+  }
+
+  .technology-card-header {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-2);
+    margin-bottom: var(--spacing-3);
+
+    h3 {
+      margin: 0;
+    }
+  }
+  .technology-card-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-1);
+  }
+
+  .technology-icon {
+    width: 1.5rem;
+    height: 1.5rem;
+    color: var(--secondary);
+    display: block;
+  }
+
+</style>

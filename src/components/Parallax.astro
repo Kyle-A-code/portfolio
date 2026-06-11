@@ -1,4 +1,5 @@
 ---
+import { Image } from "astro:assets";
 import LayerMountain1 from "../assets/1.png";
 import LayerMountain2 from "../assets/2.png";
 import LayerMountain3 from "../assets/3.png";
@@ -7,18 +8,84 @@ import LayerTree1 from "../assets/5.png";
 import LayerTree2 from "../assets/6.png";
 import LayerGround1 from "../assets/7.png";
 import LayerGround2 from "../assets/8.png";
+
+const PARALLAX_WIDTHS = [640, 960, 1280, 1728, 2172];
 ---
 
 <div class="parallax-container" id="hero">
   <div id="layer-base" class="parallax-layer"></div>
-  <img src={LayerMountain1.src} id="layer-mountain-1" class="parallax-layer" alt="" />
-  <img src={LayerMountain2.src} id="layer-mountain-2" class="parallax-layer" alt="" />
-  <img src={LayerMountain3.src} id="layer-mountain-3" class="parallax-layer" alt="" />
-  <img src={LayerMountain4.src} id="layer-mountain-4" class="parallax-layer" alt="" />
-  <img src={LayerTree1.src} id="layer-tree-1" class="parallax-layer" alt="" />
-  <img src={LayerTree2.src} id="layer-tree-2" class="parallax-layer" alt="" />
-  <img src={LayerGround1.src} id="layer-ground-1" class="parallax-layer" alt="" />
-  <img src={LayerGround2.src} id="layer-ground-2" class="parallax-layer" alt="" />
+  <Image
+    src={LayerMountain1}
+    id="layer-mountain-1"
+    class="parallax-layer"
+    alt=""
+    loading="eager"
+    widths={PARALLAX_WIDTHS}
+    sizes="100vw"
+  />
+  <Image
+    src={LayerMountain2}
+    id="layer-mountain-2"
+    class="parallax-layer"
+    alt=""
+    loading="eager"
+    widths={PARALLAX_WIDTHS}
+    sizes="100vw"
+  />
+  <Image
+    src={LayerMountain3}
+    id="layer-mountain-3"
+    class="parallax-layer"
+    alt=""
+    loading="eager"
+    widths={PARALLAX_WIDTHS}
+    sizes="100vw"
+  />
+  <Image
+    src={LayerMountain4}
+    id="layer-mountain-4"
+    class="parallax-layer"
+    alt=""
+    loading="eager"
+    widths={PARALLAX_WIDTHS}
+    sizes="100vw"
+  />
+  <Image
+    src={LayerTree1}
+    id="layer-tree-1"
+    class="parallax-layer"
+    alt=""
+    loading="eager"
+    widths={PARALLAX_WIDTHS}
+    sizes="100vw"
+  />
+  <Image
+    src={LayerTree2}
+    id="layer-tree-2"
+    class="parallax-layer"
+    alt=""
+    loading="eager"
+    widths={PARALLAX_WIDTHS}
+    sizes="100vw"
+  />
+  <Image
+    src={LayerGround1}
+    id="layer-ground-1"
+    class="parallax-layer"
+    alt=""
+    loading="eager"
+    widths={PARALLAX_WIDTHS}
+    sizes="100vw"
+  />
+  <Image
+    src={LayerGround2}
+    id="layer-ground-2"
+    class="parallax-layer"
+    alt=""
+    loading="eager"
+    widths={PARALLAX_WIDTHS}
+    sizes="100vw"
+  />
   <slot />
 </div>
 
@@ -90,7 +157,23 @@ import LayerGround2 from "../assets/8.png";
 
     #layer-ground-2 {
       z-index: 8;
-      /* todo: blend with background */
+    }
+
+    /* blend the last layer with the background */
+    &::after {
+      content: "";
+      grid-area: stack;
+      align-self: end;
+      justify-self: stretch;
+      height: clamp(4rem, 10vh, 8rem);
+      z-index: 9;
+      pointer-events: none;
+      background: linear-gradient(
+        to bottom,
+        transparent 0%,
+        color-mix(in srgb, var(--background) 55%, transparent) 45%,
+        var(--background) 100%
+      );
     }
   }
 

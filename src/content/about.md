@@ -1,0 +1,5 @@
+I love software development—not just as a career, but for the pure joy of problem-solving and the organic, ever-changing nature of code. Because software is constantly evolving, I have built a technology-agnostic mindset. I love learning new technologies and exploring different tools to find genuinely better, more effective and novel ways to achieve a goal.
+
+My approach to engineering is deeply shaped by my background in technical support. Spending years on the frontline gave me firsthand experience with what happens to software once it actually ships—and how things that nobody ever imagined would break, inevitably do. This has made me a highly disciplined developer who designs with production reliability, edge cases, and real-user behavior in mind from day one.
+
+In my day-to-day, I am a collaborative team player who thrives in fast-paced, high-agency environments. I love the energy of working closely with a nimble team to ship features, but I also deeply appreciate the quiet focus required when a complex architectural problem needs to be tackled.

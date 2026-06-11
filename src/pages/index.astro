@@ -2,18 +2,65 @@
 import Parallax from "../components/Parallax.astro";
 import Hero from "../components/Hero.astro";
 import Layout from "../layouts/Layout.astro";
-
-// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
-// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+import { Content as AboutContent } from "../content/about.md";
+import Experience from "../components/Experience.astro";
+import Technology from "../components/Technology.astro";
+import Portfolio from "../components/Portfolio.astro";
 ---
 
 <Layout>
-  <div id="container">
+  <main>
     <Parallax>
       <Hero />
     </Parallax>
-    <main id="main-content">
-      <h1>Work in progress</h1>
-    </main>
-  </div>
+    <div id="main-content">
+      <section id="about">
+        <h2 class="label-caps">About.</h2>
+        <p class="font-headline-md section-label">Engineering philosophy.</p>
+        <div class="font-body-md about-paragraphs">
+          <AboutContent />
+        </div>
+      </section>
+      <section id="technologies">
+        <h2 class="label-caps">Technologies.</h2>
+        <p class="font-headline-md section-label">Applied technologies.</p>
+        <Technology />
+      </section>
+      <section id="portfolio">
+        <h2 class="label-caps">Portfolio.</h2>
+        <p class="font-headline-md section-label">Featured work.</p>
+        <Portfolio />
+      </section>
+      <section id="experience">
+        <h2 class="label-caps">Experience.</h2>
+        <p class="font-headline-md section-label">Professional history.</p>
+        <Experience />
+      </section>
+    </div>
+  </main>
 </Layout>
+
+<style>
+  #main-content {
+    max-width: var(--layout-max-width);
+    padding: var(--spacing-4);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-5);
+  }
+
+  section {
+    h2 {
+      color: var(--secondary);
+    }
+  }
+
+  .section-label {
+    margin-top: 0;
+  }
+
+  .about-paragraphs :global(p) {
+    color: var(--on-surface-variant);
+  }
+</style>

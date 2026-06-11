@@ -1,0 +1,6 @@
+{
+  "order": 4,
+  "title": "Services",
+  "icon": "gears",
+  "items": ["Stripe", "Clerk", "Pinecone", "Sanity CMS", "Langchain", "LLMs"]
+}

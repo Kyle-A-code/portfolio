@@ -1,0 +1,15 @@
+{
+  "order": 1,
+  "title": "Savings Visualiser",
+  "summary": "A savings visualiser that allows users to visualize \"buckets\" within an account and set savings goals for each bucket.",
+  "goal": "Designed and built to validate an architecture splitting a Go/Gin REST API with GORM/SQLite persistence from a React frontend powered by TanStack Router and Query.",
+  "url": "https://github.com/Kyle-A-code/savings-visualiser",
+  "technologies": [
+    "React 19",
+    "Tanstack Router/Query",
+    "Golang",
+    "Gin",
+    "Gorm",
+    "SQLite"
+  ]
+}

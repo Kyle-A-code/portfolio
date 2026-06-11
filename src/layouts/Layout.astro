@@ -2,31 +2,39 @@
 import { Font } from "astro:assets";
 import "../styles/global.css";
 import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
 <html lang="en">
   <head>
+    <meta charset="UTF-8" />
     <Font cssVariable="--font-headline" preload />
     <Font cssVariable="--font-body" preload />
     <Font cssVariable="--font-label" preload />
-    <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="icon" href="/favicon.ico" />
     <meta name="generator" content={Astro.generator} />
-    <title>KyleAnnett.DEV</title>
+    <meta name="description" content="Kyle Annett — Senior Fullstack Engineer with 5+ years of experience architecting and delivering web, cloud, and AI-powered products." />
+    <meta property="og:title" content="Kyle Annett | Senior Fullstack Engineer" />
+    <meta property="og:description" content="Kyle Annett — Senior Fullstack Engineer with 5+ years of experience architecting and delivering web, cloud, and AI-powered products." />
+    <meta property="og:url" content="https://kyleannett.dev" />
+    <meta property="og:type" content="website" />
+    <title>Kyle Annett | Senior Fullstack Engineer</title>
   </head>
   <body>
     <a class="skip-link" href="#main-content">Skip to main content</a>
     <Header />
     <slot />
+    <Footer />
   </body>
 </html>
 
 <style>
   html,
   body {
+    scroll-padding-top: calc(var(--header-height) + var(--spacing-1));
     margin: 0;
     width: 100%;
     height: 100%;

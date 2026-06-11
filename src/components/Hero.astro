@@ -9,8 +9,7 @@ import LinkedInIcon from "../assets/linkedin.svg";
   <span class="label-caps job-badge">Senior Fullstack Engineer</span>
   <h1 class="font-display-lg">Kyle Annett</h1>
   <p class="font-headline-sm hero-description">
-    Building resilient digital ecosystems where technical precision meets
-    organic architectural growth.
+    Senior Fullstack Engineer with 5+ years of experience architecting and delivering web, cloud, and AI-powered products across Rails, Python, React, and Azure.
   </p>
   <div class="hero-links">
     <a
@@ -18,7 +17,7 @@ import LinkedInIcon from "../assets/linkedin.svg";
       rel="noopener noreferrer"
       target="_blank"
       title="GitHub"
-      aria-label="GitHub"
+      aria-label="GitHub (opens in new tab)"
     >
       <GitHubIcon class="icon" aria-hidden="true" focusable="false" />
     </a>
@@ -27,7 +26,7 @@ import LinkedInIcon from "../assets/linkedin.svg";
       rel="noopener noreferrer"
       target="_blank"
       title="LinkedIn"
-      aria-label="LinkedIn"
+      aria-label="LinkedIn (opens in new tab)"
     >
       <LinkedInIcon class="icon" aria-hidden="true" focusable="false" />
     </a>
@@ -36,14 +35,13 @@ import LinkedInIcon from "../assets/linkedin.svg";
       rel="noopener noreferrer"
       target="_blank"
       title="Resume"
-      aria-label="Resume"
+      aria-label="Resume (opens in new tab)"
     >
       <FileIcon class="icon" aria-hidden="true" focusable="false" />
     </a>
     <a
       href="mailto:kyle.j.annett@gmail.com"
       rel="noopener noreferrer"
-      target="_blank"
       title="Email"
       aria-label="Email"
     >
@@ -64,6 +62,12 @@ import LinkedInIcon from "../assets/linkedin.svg";
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    opacity: 1;
+
+    @supports (animation-timeline: view(block)) {
+      animation: fadeOutHero linear both;
+      animation-timeline: view(block);
+    }
   }
 
   .job-badge {
@@ -112,5 +116,31 @@ import LinkedInIcon from "../assets/linkedin.svg";
     transition:
       color 0.2s ease,
       transform 0.2s ease;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-content {
+      animation: none;
+      opacity: 1;
+    }
+
+    .hero-links > a:hover > .icon {
+      transform: none;
+    }
+
+    .icon {
+      transition: color 0.2s ease;
+    }
+  }
+
+  @keyframes fadeOutHero {
+    0%,
+    45% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 0;
+    }
   }
 </style>

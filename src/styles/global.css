@@ -106,9 +106,9 @@
   --z-max: 9999;
 
   --layout-max-width: 75rem;
-  --breakpoint-md: 48rem;
 
   --header-height: 4rem;
+  --footer-height: 6rem;
   --parallax-height: 100dvh;
 
   --parallax-multiplier: 500px;
@@ -126,7 +126,7 @@ body {
   line-height: var(--line-height-tight);
   letter-spacing: var(--letter-spacing-tight);
 
-  @media (max-width: var(--breakpoint-md)) {
+  @media (max-width: 48rem) {
     font-size: var(--font-size-2xl);
     line-height: var(--line-height-snug);
   }
@@ -146,25 +146,11 @@ body {
   line-height: var(--line-height-tight);
 }
 
-.font-body-lg {
-  font-family: var(--font-body);
-  font-size: var(--font-size-lg);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-loose);
-}
-
 .font-body-md {
   font-family: var(--font-body);
   font-size: var(--font-size-md);
   font-weight: var(--font-weight-regular);
   line-height: var(--line-height-loose);
-}
-
-.font-code-sm {
-  font-family: var(--font-label);
-  font-size: var(--font-size-sm);
-  font-weight: var(--font-weight-regular);
-  line-height: var(--line-height-relaxed);
 }
 
 .label-caps {
@@ -199,7 +185,10 @@ body {
   border-radius: var(--border-radius-lg);
   padding: var(--spacing-2) var(--spacing-3);
   cursor: pointer;
-  transition: all 0.2s ease;
+  transition:
+    background-color 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
 
   &:hover {
     background-color: var(--primary-fixed);
@@ -219,4 +208,17 @@ body {
   box-shadow: var(--shadow-sm);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+}
+
+.tag {
+  font-family: var(--font-label);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-relaxed);
+  background-color: color-mix(in srgb, var(--primary) 10%, transparent);
+  color: var(--primary-fixed);
+  border: 1px solid color-mix(in srgb, var(--primary) 20%, transparent);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--border-radius-sm);
+  display: inline-block;
 }
