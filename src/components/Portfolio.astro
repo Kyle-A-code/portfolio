@@ -51,6 +51,15 @@ const projects = (await getCollection("projects"))
       </a>
     ))
   }
+
+  <article class="glass-panel portfolio-card portfolio-card-coming-soon">
+    <div class="info-item">
+      <span class="label-caps info-label">In Progress</span>
+      <p class="font-body-md info-value">
+        This portfolio is still being built out. More projects are coming soon.
+      </p>
+    </div>
+  </article>
 </div>
 
 <style>
@@ -100,6 +109,10 @@ const projects = (await getCollection("projects"))
     transition:
       transform 0.2s ease,
       box-shadow 0.2s ease;
+  }
+
+  .portfolio-card-coming-soon {
+    border: 1px dashed var(--border-subtle);
   }
 
   .project-header {
