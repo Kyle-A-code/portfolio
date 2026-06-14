@@ -109,7 +109,7 @@
 
   --header-height: 4rem;
   --footer-height: 6rem;
-  --parallax-height: 100dvh;
+  --parallax-height: 100svh;
 
   --parallax-multiplier: 500px;
 }
