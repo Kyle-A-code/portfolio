@@ -1,0 +1,12 @@
+{
+  "order": 2,
+  "title": "Chess in Svelte",
+  "summary": "A chess clone built in Svelte (work in progress).",
+  "goal": "Building a chess clone to get some experience with Svelte as well as get some hands on experience with vitest.",
+  "url": "https://github.com/Kyle-A-code/chess",
+  "technologies": [
+    "Svelte",
+    "Typescript",
+    "Vitest"
+  ]
+}
